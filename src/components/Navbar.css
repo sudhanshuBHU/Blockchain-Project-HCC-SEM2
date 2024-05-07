@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Graduate&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    width: 100vw;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    border-bottom: 1px solid #1DA1F2;
+    /* font-family: "Graduate"; */
+}
+
+.leftLogo {
+
+    height: 2.5rem;
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+.leftSide {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    cursor: pointer;
+}
+
+#header {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bold;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #1DA1F2;
+    letter-spacing: 1px;
+    font-family: "Alegreya Sans";
+}
+
+.rightSide {
+    display: flex;
+    gap: 0.7rem;
+    margin-right: 1rem;
+    /* font-family: "Alegreya Sans"; */
+    font-weight: 500;
+}
+
+.about:hover {
+    color: #1DA1F2;
+    border-bottom: 1px solid #1DA1F2;
+    cursor: pointer;
+}
+
+
+
+
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ecf0f3;
+    /* display: flex; */
+    /* align-items: center; */
+    /* text-align: center; */
+    /* justify-content: center; */
+    /* place-items: center; */
+    overflow: hidden;
+    font-family: poppins;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    color: #6c7587;
+    height: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 3px solid rgba(255, 255, 255, 0);
+    outline: none;
+    text-align: center;
+    background-color: #ebecf0;
+    transition: all 250ms ease-in-out;
+    box-shadow: 8px 8px 12px -2px rgba(72, 79, 96, 0.4), -6px -6px 12px -1px white;
+    cursor: pointer;
+}
+
+.about:hover {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.about:active {
+    box-shadow: inset -4px -4px 6px -1px white, inset 2px 2px 8px -1px rgba(72, 79, 96, 0.5);
+    border-color: rgba(255, 255, 255, 0);
+}
+
+/* .container {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+} */
+
+/* .brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("https://img.icons8.com/color/100/000000/twitter--v2.png");
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+} */
+
+/* .brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1DA1F2;
+  letter-spacing: 1px;
+} */
+
+/* .inputs {
+  text-align: left;
+  margin-top: 30px;
+} */
+
+/* label, input, button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+} */
+
+/* label {
+  margin-bottom: 4px;
+} */
+
+/* label:nth-of-type(2) {
+  margin-top: 12px;
+} */
+
+/* input {
+    caret-color: red;
+  } */
+
+/* input::placeholder {
+  color: gray;
+} */
+
+/* input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+} */
+
+/* button {
+  color: white;
+  margin-top: 20px;
+  background: #1DA1F2;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+} */
+
+/* button:hover {
+  box-shadow: none;
+} */
+
+/* a {
+  position: absolute;
+  font-size: 8px;
+  bottom: 4px;
+  right: 4px;
+  text-decoration: none;
+  color: black;
+  background: yellow;
+  border-radius: 10px;
+  padding: 2px;
+} */
+
+/* h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
