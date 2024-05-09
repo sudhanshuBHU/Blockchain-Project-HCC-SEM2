@@ -5,7 +5,6 @@ const Counter = () => {
     const [visitorCount, setVisitorCount] = useState(0); // Initial visitor count
     const [templeCount, setTempleCount] = useState(0); // Initial temple count
 
-
     useEffect(() => {
         let currentVisitorCount = 0;
         let currentTempleCount = 0;
@@ -31,7 +30,9 @@ const Counter = () => {
         }, 20); // Update every 10 milliseconds
 
         // Clean up interval on component unmount
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+        }
     }, []);
 
     return (
