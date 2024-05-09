@@ -1,0 +1,16 @@
+.signContainer-wrapper {
+    display: flex;
+    border: 2px solid #1DA1F2;
+    height: 10rem;
+    align-items: center;
+    justify-content: space-around;
+    background: #ecf0f3;
+    /* gap: 10rem; */
+
+}
+#sign-btn{
+    width: 9rem;
+    font-size: 1rem;
+    height: 3rem;
+    font-weight: 600;
+}

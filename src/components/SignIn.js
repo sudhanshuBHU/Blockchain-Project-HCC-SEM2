@@ -48,18 +48,3 @@ const SignIn = () => {
 }
 
 export default SignIn;
-// return (
-
-//     <div className="sign-manu">
-//         <div className="signin">
-//             <div className="signin-title">Manufacturer</div>
-//             <div className="inputs">
-//                 {/* <label>EMAIL</label> */}
-//                 {/* <input type="email" placeholder="example@test.com" />/ */}
-//                 <label>PASSWORD</label>
-//                 <input type="password" placeholder="Min 6 charaters long" />
-//                 <button type="submit">LOGIN</button>
-//             </div>
-//         </div>
-//     </div>
-// );

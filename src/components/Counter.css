@@ -1,0 +1,21 @@
+.counter-wrapper {
+    display: flex;
+    border: 2px solid #1DA1F2;
+    height: 6rem;
+    align-items: center;
+    justify-content: space-around;
+    background: #ecf0f3;
+    padding-top: 0.6rem;
+}
+
+.counter-name {
+    font-family: "Poppins";
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(10, 42, 39);
+    color: #6c7587;
+}
+
+.counter-count {
+    color: #1DA1F2;
+}

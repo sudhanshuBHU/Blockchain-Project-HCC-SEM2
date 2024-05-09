@@ -5,6 +5,7 @@ input {
 }
 
 .signin {
+    font-family: "Algrey Sans";
   width: 25rem;
   height: 25rem;
   border-radius: 20px;
@@ -98,4 +99,21 @@ a {
 h1 {
   top: 0;
   left: 0;
+}
+.form-title1{
+    font-weight: bold;
+    font-size: 2rem;
+}
+.form-label1{
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.form-label2{
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+#submitloginDoc{
+    margin-top: 2.5rem;
 }

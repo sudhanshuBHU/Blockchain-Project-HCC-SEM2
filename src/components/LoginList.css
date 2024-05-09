@@ -1,0 +1,34 @@
+.loginList-container {
+    display: flex;
+    font-family: "Algrey Sans";
+    border: 2px solid #1DA1F2;
+    height: 40rem;
+    align-items: center;
+    justify-content: space-around;
+    background: #ecf0f3;
+}
+
+.inner-container {
+    font-size: 1.3rem;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#content-loginList {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#loginList {
+    font-size: 1.3rem;
+    height: 2.5rem;
+}
