@@ -1,18 +1,125 @@
 import React from "react";
 import { useState } from "react";
 import "./SignDoctor.css";
+import Web3 from "web3";
+
+
+
 const SignDoctor = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [special, setSpecial] = useState('');
+    const [pwdMsg, setPwdMsg] = useState('');
+    const [rePassword, setRePassword] = useState('');
+
+
+    const ABI = [
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "u",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "pass",
+                    "type": "string"
+                }
+            ],
+            "name": "setUserPass",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "u",
+                    "type": "string"
+                }
+            ],
+            "name": "getUser",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ];
+    const ADD = '0x19c03fdef546575985002b32b7f0241c18a63e83';
+    const [accountName, setAccountName] = useState('');
+    // const [contract, setConstract] = useState(null);
+
+
+
+    const detectProvider = () => {
+        let provider;
+        if (window.ethereum) {
+            provider = window.ethereum;
+            // console.log("window.ethereum");
+        } else if (window.web3) {
+            provider = window.web3.currentProvider;
+            // console.log("window.web3");
+        } else {
+            console.log("non-ethereum browser");
+        }
+        return provider;
+    }
+
+
+    const onConnect = async (username, password, special) => {
+        try {
+            const currProvider = detectProvider();
+            if (currProvider) {
+                await currProvider.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(currProvider);
+                const userAccounts = await web3.eth.getAccounts();
+                setAccountName(userAccounts[0]);
+                const ContractInstance = new web3.eth.Contract(ABI, ADD);
+                await ContractInstance.methods.setUserPass(username,password).send({from:accountName,gas:300000});
+                console.log("user registered");
+                // setConstract(ContractInstance);
+
+                // await contract.methods.setRegistration(username, password, special).send({ from: accountName, gas: 300000 });
+                // const res = await contract.methods.viewRegistration().call();
+                // console.log(res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Username:", username);
         console.log("Password:", password);
+        console.log("special:", special);
+        onConnect(username, password, special);
+        setUsername('');
+        setSpecial('');
+        setPassword('');
+        setRePassword('');
     }
+
+    const rePasswordHandler = (e) => {
+        setRePassword(e.target.value);
+        if (e.target.value !== password) { setPwdMsg("Password doesn't match."); }
+        else setPwdMsg('');
+    }
+    const passwordHandler = (e) => {
+        setPassword(e.target.value);
+        if (password === "") setPwdMsg('');
+    }
+
     return (
-        <div className="sign-manu">
-            <div className="signin">
+        <div className="innerDiv">
+            <div className="signin ">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2 className="form-title1">Register as a Doctor</h2>
                     <div className="form-group">
@@ -35,31 +142,32 @@ const SignDoctor = () => {
                             className="form-input"
                             placeholder="Enter your password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={passwordHandler}
                             required
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="password" className="form-label1">Re-Enter Password</label>
+                        <label htmlFor="rePassword" className="form-label1">Re-Enter Password</label>
                         <input
                             type="password"
-                            id="password"
+                            id="rePassword"
                             className="form-input"
                             placeholder="Enter your password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={rePassword}
+                            onChange={rePasswordHandler}
                             required
                         />
                     </div>
+                    <p className="passwordErrorMsg">{pwdMsg}</p>
                     <div className="form-group">
-                        <label htmlFor="username" className="form-label2">Specialization</label>
+                        <label htmlFor="special" className="form-label2">Specialization</label>
                         <input
                             type="text"
-                            id="username"
+                            id="special"
                             className="form-input"
                             placeholder="Enter your ID"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={special}
+                            onChange={(e) => setSpecial(e.target.value)}
                             required
                         />
                     </div>

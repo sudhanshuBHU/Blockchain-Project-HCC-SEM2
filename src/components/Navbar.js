@@ -10,6 +10,7 @@ const Navbar = () => {
                 <span id="header">Health Care</span>
             </div>
             <div className="rightSide">
+                <Link to="/" className="about">Home</Link>
                 <Link to="/" className="about">Find Item</Link>
                 <Link to="/loginList" className="about">Log In</Link>
                 <Link to="/signupList" className="about">Sign Up</Link>

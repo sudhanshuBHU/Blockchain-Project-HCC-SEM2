@@ -10,8 +10,8 @@
 
 .inner-container {
     font-size: 1.3rem;
-    width: 25rem;
-    height: 25rem;
+    width: 35rem;
+    height: 30rem;
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
@@ -26,9 +26,13 @@
 #content-loginList {
     font-weight: bold;
     font-size: 2rem;
+    text-decoration: underline red;
 }
 
 #loginList {
     font-size: 1.3rem;
     height: 2.5rem;
+}
+h2{
+    text-decoration: underline red;
 }

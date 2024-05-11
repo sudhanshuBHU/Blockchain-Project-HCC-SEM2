@@ -13,23 +13,63 @@ import SignManufacturer from './components/SignManufacturer';
 import SignPathology from './components/SignPathology';
 import SignPatient from './components/SignPatient';
 import Web3 from 'web3';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { increaseCards, increaseCertificates, increaseMeds, increaseVisitors } from './redux/CounterSlice';
 
+
+
+const ABI = [
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "setCount",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "getCount",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+const ADD = '0xd7c112e14c204614234523f712006fe449cb40d2';
 
 function App() {
 
-  const [accountName, setAccountName] = useState('');
-  const [accountBalance, setAccountBalance] = useState(0);
+  // const [contract1, setContract] = useState(null);
+  // const dispatch = useDispatch();
   const detectProvider = () => {
     let provider;
     if (window.ethereum) {
-      // provider=new Web3.providers.WebsocketProvider(window.ethereum);
-      // window.ethereum.enable();
       provider = window.ethereum;
       console.log("window.ethereum");
     } else if (window.web3) {
       provider = window.web3.currentProvider;
-      console.log("window.web3");
     } else {
       console.log("non-ethereum browser");
     }
@@ -39,18 +79,35 @@ function App() {
   useEffect(() => {
     const onConnect = async () => {
       try {
+        // console.log("step1 clear");
         const currProvider = detectProvider();
+        // console.log("step2 clear");
         if (currProvider) {
+          // console.log("step3 clear");
           await currProvider.request({ method: 'eth_requestAccounts' });
+          // console.log("step4 clear");
           const web3 = new Web3(currProvider);
-          const userAccounts = await web3.eth.getAccounts();
-          setAccountName(userAccounts[0]);
-          const balance = await web3.eth.getBalance(userAccounts[0]);
-          setAccountBalance(balance);
-          console.log("Account: " + accountName);
-          console.log("Balance: " + accountBalance);
+          // console.log("step4 clear");
+          // const userAccounts = await web3.eth.getAccounts();
+          const ContractInstance = new web3.eth.Contract(ABI, ADD);
+          // console.log("step5 clear");
+          console.log(ContractInstance);
+          // setContract(ContractInstance);
+          // console.log("step6 clear");
+          // const res = await ContractInstance.methods.getCount().call();
+          // console.log(contract1);
+          // console.log(contract1);
+          // console.log("step7 clear");
+          // console.log(res);
+          // dispatch(parseInt(increaseVisitors(res[0])));
+          // dispatch(parseInt(increaseCards(res[1])));
+          // console.log("step8 clear");
+          // dispatch(parseInt(increaseMeds(res[2])));
+          // dispatch(parseInt(increaseCertificates(res[3])));
+          // console.log("step9 clear");
         }
       } catch (error) {
+        console.log("error at app.js");
         console.log(error);
       }
     }
@@ -59,9 +116,7 @@ function App() {
 
     return () => {
     };
-  }, [accountBalance,accountName]);
-
-
+  }, []);
 
 
   return (
@@ -81,16 +136,6 @@ function App() {
         <Route path='/loginList' element={<LoginList />}></Route>
         <Route path='/signupList' element={<SignupList />}></Route>
       </Routes>
-
-      {/* <SignIn/> */}
-      {/* <Test/> */}
-
-
-      {/* <LoginList/> */}
-      {/* <SignupList/> */}
-      {/* <LoginDoctor/> */}
-      {/* <LoginPatient/> */}
-      {/* <SignDoctor/> */}
     </div>
   );
 }

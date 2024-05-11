@@ -1,7 +1,16 @@
-.sign-manu{
-    height: 50rem;
-}
+
 .signin{
     height: 40rem;
     width: 40rem;
+}
+.passwordErrorMsg{
+    color: red;
+}
+.innerDiv{
+    height: 50rem;
+    display: flex;
+    border: 2px solid #1DA1F2;
+    align-items: center;
+    justify-content: center;
+    background: #ecf0f3;
 }

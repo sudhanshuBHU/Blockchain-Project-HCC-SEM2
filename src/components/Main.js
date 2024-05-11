@@ -3,14 +3,20 @@ import ControlledCarousel from "./ControlledCarousel";
 import Counter from "./Counter";
 import SignContainer from "./SignContainer";
 import "./Main.css";
+import SignIn from "./SignIn";
+import Test from "./Test";
+import CheckWallet from "./CheckWallet";
 
 
 const Main = () => {
     return (
         <div className="main-container">
-            <ControlledCarousel />
-            <Counter />
-            <SignContainer />
+            {/* <Test/> */}
+            {/* <SignIn/> */}
+            {/* <ControlledCarousel /> */}
+            {/* <Counter /> */}
+            {/* <CheckWallet/> */}
+            {/* <SignContainer /> */}
         </div>
     );
 }
