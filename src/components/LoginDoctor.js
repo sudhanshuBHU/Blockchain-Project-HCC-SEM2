@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./LoginDoctor.css";
 import Web3 from "web3";
+import { Link } from "react-router-dom";
 
 
 
@@ -25,7 +26,13 @@ const LoginDoctor = () => {
                 }
             ],
             "name": "setUserPass",
-            "outputs": [],
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
             "stateMutability": "nonpayable",
             "type": "function"
         },
@@ -49,7 +56,7 @@ const LoginDoctor = () => {
             "type": "function"
         }
     ];
-    const ADD = '0x19c03fdef546575985002b32b7f0241c18a63e83';
+    const ADD = '0xacb4916010b077d18883359dba83039010566fdd';
     const [accountName, setAccountName] = useState('');
 
 
@@ -78,10 +85,10 @@ const LoginDoctor = () => {
                 setAccountName(userAccounts[0]);
                 const ContractInstance = new web3.eth.Contract(ABI, ADD);
 
-                const res= await ContractInstance.methods.getUser(username).call();
-                if(res===password) console.log("log in successful");
+                const res = await ContractInstance.methods.getUser(username).call();
+                if (res === password) console.log("log in successful");
                 else console.log("user not found");
-                
+
                 // await ContractInstance.methods.setUserPass(username, password).send({ from: accountName, gas: 300000 });
                 // console.log("user registered");
                 // setConstract(ContractInstance);
@@ -134,6 +141,12 @@ const LoginDoctor = () => {
                     </div>
                     <button type="submit" className="btn-submit" id="submitloginDoc">Login</button>
                 </form>
+                <div className="newDoctor">
+                    <Link to="">Forget Password</Link>
+                </div>
+                <div className="newDoctor">
+                    Create new account as Doctor <Link to="/signDoctor" id="newDoc" >Sign Up</Link>
+                </div>
             </div>
         </div>
     );

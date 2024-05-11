@@ -133,18 +133,18 @@ const SignPatient = () => {
 
     const rePasswordHandler = (e) => {
         setRePassword(e.target.value);
-        if (e.target.value != password) { setPwdMsg("Password doesn't match."); }
+        if (e.target.value !== password) { setPwdMsg("Password doesn't match."); }
         else setPwdMsg('');
     }
     const passwordHandler = (e) => {
         setPassword(e.target.value);
-        if (password == "") setPwdMsg('');
+        if (password === "") setPwdMsg('');
     }
 
 
     return (
-        <div className="sign-manu">
-            <div className="signin">
+        <div className="sign-manu1">
+            <div className="signin1">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2 className="form-title1">Register as a Patient</h2>
                     <div className="form-group">

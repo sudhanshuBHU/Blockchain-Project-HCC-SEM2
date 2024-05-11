@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import "./SignDoctor.css";
 import Web3 from "web3";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 
 
@@ -13,6 +16,7 @@ const SignDoctor = () => {
     const [rePassword, setRePassword] = useState('');
 
 
+    const navigate = useNavigate();
     const ABI = [
         {
             "inputs": [
@@ -28,7 +32,13 @@ const SignDoctor = () => {
                 }
             ],
             "name": "setUserPass",
-            "outputs": [],
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
             "stateMutability": "nonpayable",
             "type": "function"
         },
@@ -52,9 +62,26 @@ const SignDoctor = () => {
             "type": "function"
         }
     ];
-    const ADD = '0x19c03fdef546575985002b32b7f0241c18a63e83';
+    const ADD = '0xacb4916010b077d18883359dba83039010566fdd';
     const [accountName, setAccountName] = useState('');
     // const [contract, setConstract] = useState(null);
+
+
+    const sweetAlertSuccess = () => {
+        Swal.fire({
+            title: "Success",
+            text: `${username} has been registered`,
+            icon: "success"
+        })
+    }
+
+    const sweetAlertError = (res = "Oops Error Occured. Please Try Again.") => {
+        Swal.fire({
+            title: "Error",
+            text: res,
+            icon: "error"
+        })
+    }
 
 
 
@@ -82,8 +109,28 @@ const SignDoctor = () => {
                 const userAccounts = await web3.eth.getAccounts();
                 setAccountName(userAccounts[0]);
                 const ContractInstance = new web3.eth.Contract(ABI, ADD);
-                await ContractInstance.methods.setUserPass(username,password).send({from:accountName,gas:300000});
-                console.log("user registered");
+                console.log(ContractInstance);
+                const existingUser = await ContractInstance.methods.getUser(username).call();
+                if (existingUser === '') {
+                    const response = await ContractInstance.methods.setUserPass(username, password).send({ from: accountName, gas: 300000 });
+                    if (response === true) {
+                        console.log(`${username} has been registered`);
+                        sweetAlertSuccess();
+                        navigate('/logDoctor');
+                        return true;
+                    }
+                } else {
+                    sweetAlertError(`${username} already exists. Try loging in.`);
+                    navigate('/logDoctor');
+                }
+                // else {
+                //     console.log("Try again, failed to create account.");
+                //     sweetAlertError();
+                //     return false;
+                // }
+
+
+                // const navigate = useNavigate();
                 // setConstract(ContractInstance);
 
                 // await contract.methods.setRegistration(username, password, special).send({ from: accountName, gas: 300000 });
@@ -91,8 +138,10 @@ const SignDoctor = () => {
                 // console.log(res);
             }
         } catch (error) {
+            console.log("Error at signDoctor");
             console.log(error);
         }
+        return false;
     }
 
     const handleSubmit = (e) => {
@@ -100,11 +149,23 @@ const SignDoctor = () => {
         console.log("Username:", username);
         console.log("Password:", password);
         console.log("special:", special);
-        onConnect(username, password, special);
-        setUsername('');
-        setSpecial('');
-        setPassword('');
-        setRePassword('');
+        if (rePassword === password) {
+            const res = onConnect(username, password, special);
+            if (res === true) {
+                setUsername('');
+                setSpecial('');
+                setPassword('');
+                setRePassword('');
+            } else {
+                sweetAlertError("Problem in gas transaction, Try again");
+            }
+        } else {
+            console.log("Password didn't matched");
+            sweetAlertError("Password didn't matched");
+        }
+
+
+        // navigate('/logDoctor');
     }
 
     const rePasswordHandler = (e) => {
@@ -173,6 +234,9 @@ const SignDoctor = () => {
                     </div>
                     <button type="submit" className="btn-submit" id="submitloginDoc">Create an Account</button>
                 </form>
+                <div className="logDoc">
+                    Already have an account?<Link to="/logDoctor" id=""> Log in</Link> 
+                </div>
             </div>
         </div>
     );

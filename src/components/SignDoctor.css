@@ -1,6 +1,7 @@
 
 .signin{
-    height: 40rem;
+    font-family: "Algrey Sans";
+    height: 42rem;
     width: 40rem;
 }
 .passwordErrorMsg{
@@ -13,4 +14,8 @@
     align-items: center;
     justify-content: center;
     background: #ecf0f3;
+}
+.logDoc{
+    text-align: center;
+    margin-top: 1.5rem;
 }

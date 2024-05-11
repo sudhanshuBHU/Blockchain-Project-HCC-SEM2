@@ -2,7 +2,7 @@
     display: flex;
     font-family: "Algrey Sans";
     border: 2px solid #1DA1F2;
-    height: 40rem;
+    height: 45rem;
     align-items: center;
     justify-content: space-around;
     background: #ecf0f3;
@@ -25,12 +25,12 @@
 
 #content-loginList {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-decoration: underline red;
 }
 
 #loginList {
-    font-size: 1.3rem;
+    font-size: 1rem;
     height: 2.5rem;
 }
 h2{

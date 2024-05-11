@@ -10,8 +10,8 @@ const LoginPathology = () => {
         console.log("Username:", username);
         console.log("Password:", password);}
         return (
-            <div className="sign-manu">
-                <div className="signin">
+            <div className="sign-manu1">
+                <div className="signin1">
                     <form className="login-form" onSubmit={handleSubmit}>
                         <h2 className="form-title1">Login as Pathology</h2>
                         <div className="form-group">

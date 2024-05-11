@@ -1,11 +1,16 @@
 import React from "react";
 import "./Navbar.css";
 import logo from "../components/assests/logo.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+    const navigate = useNavigate();
+    const clickHandler = () => {
+        navigate('/');
+    }
     return (
         <div className="navbar-container">
-            <div className="leftSide">
+            <div className="leftSide" onClick={clickHandler}>
                 <img src={logo} className="leftLogo" alt="logo" />
                 <span id="header">Health Care</span>
             </div>
