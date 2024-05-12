@@ -1,9 +1,172 @@
-.profileDocWrapper{
-    display: flex;
+.profileDocWrapper {
     font-family: "Algrey Sans";
-    border: 1px solid #1DA1F2;
     height: 45rem;
-    align-items: center;
-    justify-content: space-around;
     background: #ecf0f3;
+}
+
+.profileNav{
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: 4rem;
+    row-gap: 1rem;
+}
+
+.g1 {
+    text-align: left;
+    font-size: 1rem;
+    /* border: 1px solid black; */
+}
+
+.contribution {
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px #cbced1;
+    margin-top: 0.5rem;
+}
+.contriHeading {
+    border-bottom: 1px solid black;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 2rem 10rem 20rem auto;
+}
+
+.tupple {
+    border-bottom: 1px solid black;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 2rem 10rem 20rem auto;
+}
+.column{
+    /* border: 1px solid black; */
+    padding-left: 1rem;
+}
+.topRight {
+    display: flex;
+    justify-content: end;
+    padding-top: 1rem;
+    padding-right: 2rem;
+    gap: 2rem;
+}
+
+.logOut {
+    text-decoration: none;
+    color: black;
+}
+
+.logOut:hover {
+    color: red;
+}
+
+.buttonKeeper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.addPatientForm {
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px #cbced1;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signinDoctor {
+    width: 35rem;
+    /* height: 39rem; */
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -9px -9px 30px white;
+}
+
+.formdoc {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+formDoc1 {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+
+.add {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #6c7587;
+    height: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 3px solid rgba(255, 255, 255, 0);
+    outline: none;
+    background-color: #ebecf0;
+    transition: all 250ms ease-in-out;
+    box-shadow: 8px 8px 12px -2px rgba(72, 79, 96, 0.4), -6px -6px 12px -1px white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.add:hover {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #1DA1F2;
+}
+
+.add:active {
+    box-shadow: inset -4px -4px 6px -1px white, inset 2px 2px 8px -1px rgba(72, 79, 96, 0.5);
+    border-color: rgba(255, 255, 255, 0);
+}
+
+.clearButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.submitResetButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1.5rem;
+}
+
+.submitDoc {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    height: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 3px solid rgba(255, 255, 255, 0);
+    outline: none;
+    background-color: #1DA1F2;
+    transition: all 250ms ease-in-out;
+    box-shadow: 8px 8px 12px -2px rgba(72, 79, 96, 0.4);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.submitDoc:hover {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ebecf0;
 }
